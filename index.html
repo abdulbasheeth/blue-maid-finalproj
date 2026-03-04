@@ -226,22 +226,20 @@
             -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Scrolled Header Style - Windows/Desktop & Responsive */
         .header.scrolled {
-            width: 92%; /* Slightly adjusted width */
+            width: 92%;
             left: 4%;
-            border-radius: 50px; /* Rounded exact */
-            top: 20px; /* Move down */
+            border-radius: 50px;
+            top: 20px;
             box-shadow: 0 8px 30px rgba(22, 114, 174, 0.6), 0 12px 50px rgba(22, 114, 174, 0.5);
             background: #ffffff;
         }
 
         .logo img {
             height: 40px;
-            /* Smaller logo for mobile */
         }
 
         .header-container {
@@ -258,7 +256,6 @@
             z-index: 1001;
         }
 
-        /* Responsive Logo Image Styling */
         .logo img {
             height: 50px;
             width: auto;
@@ -271,7 +268,6 @@
         .navmenu {
             display: flex;
             gap: 30px;
-
         }
 
         .navmenu ul {
@@ -350,7 +346,7 @@
             cursor: pointer;
         }
 
-        /* Hero Section - Video Background Enabled */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -359,13 +355,10 @@
             justify-content: center;
             padding: 0;
             padding-top: 80px;
-            /* Add space for fixed header */
             overflow: hidden;
             background-color: var(--white);
-            /* Fallback color */
         }
 
-        /* Video Background Container - FIXED RESPONSIVE */
         .hero-video-bg {
             position: absolute;
             top: 0;
@@ -374,16 +367,14 @@
             height: 100%;
             z-index: 1;
             overflow: hidden;
-            /* Added background to ensure immediate visual */
-            background-color: #f8fcff; 
+            background-color: #f8fcff;
         }
 
         .hero-video-bg video {
             width: 100%;
             height: 100%;
-            object-position: center center; /* Centered for better mobile view */
+            object-position: center center;
             object-fit: cover;
-            /* Cover the area without stretching */
             pointer-events: none;
         }
 
@@ -393,12 +384,9 @@
             margin: 0 auto;
             position: relative;
             z-index: 3;
-            /* Ensure content is above video */
             padding: 20px;
-            
-            /* FIX: Hidden initially for sync loading */
-            opacity: 0; 
-            transition: opacity 0.8s ease-in-out; 
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
         }
 
         .hero-content.loaded {
@@ -408,14 +396,8 @@
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 20px;
-
-            /* FIX: Force single line on Windows/Desktop */
-            white-space: nowrap; 
-
-            /* Solid Dark Blue Color */
+            white-space: nowrap;
             color: var(--dark-blue);
-
-            /* Removed gradient clipping */
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
             filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
         }
@@ -423,10 +405,8 @@
         .hero-tagline {
             font-size: 20px;
             color: white;
-            /* Changed back to white */
             margin-bottom: 30px;
             font-weight: 500;
-            /* Add shadow for readability */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
@@ -469,7 +449,7 @@
             color: var(--white);
         }
 
-        /* Services Section with Images */
+        /* Services Section */
         .services {
             background: var(--white);
         }
@@ -505,7 +485,6 @@
             margin: 0 auto;
         }
 
-        /* Service Category with Image Banner */
         .service-category {
             margin-bottom: 80px;
             background: var(--light-bg);
@@ -579,7 +558,6 @@
             padding: 40px;
         }
 
-        /* Service Items with Images */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -602,7 +580,7 @@
         }
 
         .service-image {
-            height: 180px;
+            height: 300px;
             overflow: hidden;
         }
 
@@ -653,11 +631,37 @@
             letter-spacing: 0.5px;
         }
 
-        /* WhatsApp Book Now Button */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .show-more-btn {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 5px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .show-more-btn:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+
         .book-now-btn {
             display: inline-block;
             margin-top: 15px;
             padding: 8px 16px;
+            margin-left: 20px;
+            /* Adjusted for flow */
             background: var(--green);
             color: white;
             border-radius: 30px;
@@ -680,7 +684,21 @@
             margin-right: 5px;
         }
 
-        /* AMC Badge */
+        .services-container>div:first-of-type .services-grid .service-item:nth-child(-n+2) .book-now-btn {
+            margin-left: 0;
+        }
+
+        .service-category:nth-of-type(3) .services-grid .service-item:nth-child(4) .book-now-btn {
+            margin-left: 0;
+        }
+
+.service-category:last-of-type .services-grid .service-item:first-child {
+    
+  width: 100%;
+  
+   
+}
+        
         .amc-badge {
             background: linear-gradient(135deg, #FF6B35, #FFA500);
             color: white;
@@ -875,13 +893,11 @@
             overflow: hidden;
         }
 
-        /* Footer Content Z-Index fix */
         .footer .container {
             position: relative;
             z-index: 10;
         }
 
-        /* Footer Animation Background */
         .footer-bg-anim {
             position: absolute;
             top: 0;
@@ -892,7 +908,6 @@
             overflow: hidden;
         }
 
-        /* Fixed Bubble Animation Styles */
         .bubble {
             position: absolute;
             bottom: -100px;
@@ -901,7 +916,6 @@
             animation: rise 10s infinite ease-in-out;
         }
 
-        /* Unique styling for each bubble to break the pattern */
         .bubble:nth-child(1) {
             width: 40px;
             height: 40px;
@@ -983,7 +997,6 @@
             animation-delay: 3.5s;
         }
 
-        /* Keyframes for Floating/Wobble Effect */
         @keyframes rise {
             0% {
                 bottom: -100px;
@@ -996,18 +1009,15 @@
             }
 
             25% {
-                /* Move Left */
                 transform: translateX(-30px) scale(0.9);
             }
 
             50% {
                 opacity: 0.4;
-                /* Move Right */
                 transform: translateX(30px) scale(1);
             }
 
             75% {
-                /* Move Left again */
                 transform: translateX(-20px) scale(1.1);
             }
 
@@ -1025,7 +1035,6 @@
             margin-bottom: 40px;
         }
 
-        /* --- FIX START: Footer Logo Styling --- */
         .footer .logo {
             display: block;
             margin-bottom: 20px;
@@ -1045,8 +1054,6 @@
         .footer .logo a:hover img {
             opacity: 0.8;
         }
-
-        /* --- FIX END: Footer Logo Styling --- */
 
         .logo p {
             opacity: 0.8;
@@ -1404,6 +1411,18 @@
             color: var(--text-primary);
         }
 
+        /* FIX: Modal Action Buttons Container */
+        .modal-action-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            /* Space between buttons */
+            margin-top: 20px;
+            flex-wrap: wrap;
+            /* Wrap on small screens if needed */
+        }
+
         .whatsapp-button {
             background: var(--green);
             color: var(--white);
@@ -1417,8 +1436,9 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
             text-decoration: none;
+            margin-top: 0;
+            /* Removed margin-top as container handles spacing */
         }
 
         .whatsapp-button:hover {
@@ -1468,11 +1488,8 @@
         }
 
         @media (max-width: 768px) {
-
-            /* Mobile Hero Fixes */
             .hero-content h1 {
                 font-size: 28px;
-                /* FIX: Allow wrapping on mobile so it doesn't break layout */
                 white-space: normal;
                 line-height: 1.3;
             }
@@ -1481,18 +1498,15 @@
                 font-size: 16px;
             }
 
-            /* Mobile Video Fixes */
             .hero-video-bg video {
-                /* Center the video better on mobile vertical screens */
                 object-position: center center;
             }
 
-            /* FIX: Keep rounded navbar on mobile (responsive) */
             .header.scrolled {
                 width: 94%;
                 left: 3%;
-                border-radius: 40px; /* Rounded for mobile */
-                top: 10px; /* Move down slightly */
+                border-radius: 40px;
+                top: 10px;
                 box-shadow: 0 5px 20px rgba(0, 110, 185, 0.4);
             }
 
@@ -1544,8 +1558,7 @@
                 bottom: 20px;
                 right: 20px;
             }
-            
-            /* FIX: Force single column on mobile for services */
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -1558,6 +1571,18 @@
 
             .gallery-container {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            /* Fix buttons for mobile view inside modal */
+            .modal-action-buttons {
+                flex-direction: column;
+                /* Stack vertically on very small screens */
+            }
+
+            .whatsapp-button,
+            .modal-action-buttons .secondary-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
 
@@ -1629,16 +1654,11 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero section-padding">
-        <!-- Video Background HTML Added -->
         <div class="hero-video-bg">
-            <!-- Added preload="auto" for immediate loading -->
             <video autoplay muted loop playsinline id="heroVideo" preload="auto">
                 <source src="videos/HomeVideo.mp4" type="video/mp4">
-                <!-- Optional: Add a poster image if video takes time to load -->
-                <!-- <img src="Images/fallback.jpg" alt="Background" style="width:100%; height:100%; object-fit:cover;"> -->
             </video>
         </div>
-        <!-- OVERLAY REMOVED -->
 
         <div class="container">
             <div class="hero-content">
@@ -1692,18 +1712,22 @@
                         <div class="services-grid">
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR DEEP CLEANING.png"
                                         alt="Deep Cleaning Apartment Villa Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-tint"></i> Deep Cleaning (Apartment & Villa)</h4>
-                                    <p>Comprehensive deep cleaning for all types of residential properties</p>
+                                    <p>Deep cleaning involves detailed tasks like cleaning cabinets, behind furniture,
+                                        interior windows, plus steaming bathrooms and kitchens, with grout cleaning
+                                        available on request. It’s perfect for moving in or deep refreshment. Book our
+                                        trusted, professional teams, available daily ,weekly and monthly , “Book Now” to
+                                        get started.</p>
                                     <span class="service-badge">Popular Service</span>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR LEAVING & BEDROOM CLN.png"
                                         alt="Living Area Bedrooms Cleaning Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
@@ -1713,72 +1737,129 @@
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Kitchen Cleaning Services Dubai" loading="lazy">
+                                    <img src="Images/KITCHEN CLEANING.png" alt="Kitchen Cleaning Services Dubai"
+                                        loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-utensils"></i> Kitchen Cleaning</h4>
-                                    <p>Complete kitchen sanitization including appliances and cabinets</p>
+                                    <p>Our service provides comprehensive cleaning of all kitchen surfaces, including
+                                        appliances, cabinets, countertops, and sinks , eliminating grease, food
+                                        residues, and stains to leave your kitchen sparkling clean and hygienic. Our
+                                        professional team uses safe, effective products to ensure your kitchen is fresh,
+                                        sanitized, and ready for use, “Book Now” to get started.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR BATHROOM CLN.png"
                                         alt="Bathroom Cleaning Disinfectant Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-shower"></i> Bathrooms Cleaning with Disinfectant</h4>
-                                    <p>Sanitization with hospital-grade disinfectants</p>
+                                    <p>Elevate your hygiene standards with our expert bathroom cleaning service. Our
+                                        skilled professionals employ top-tier cleaning agents and precise techniques to
+                                        ensure every surface is impeccably sanitized, from fixtures to grout lines. We
+                                        prioritize thoroughness and attention to detail, effectively removing dirt,
+                                        stains, and pathogens to create a safe and hygienic space. Flexible scheduling
+                                        options are available to accommodate your needs. Experience a higher level of
+                                        cleanliness and professionalism with our dedicated service.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR FLOORING & MOPPING.png"
                                         alt="Floor Cleaning Mopping Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-water"></i> Mopping & Flooring with Equipment</h4>
-                                    <p>Professional floor cleaning with industrial equipment</p>
+                                    <p>Elevate the quality and appearance of your property with our expert mopping and
+                                        flooring services. Our dedicated team employs advanced techniques and high-grade
+                                        materials to provide thorough cleaning, maintenance, and preservation of all
+                                        flooring surfaces. We specialize in delivering customized solutions that enhance
+                                        durability, improve hygiene, and restore the natural beauty of your floors.
+                                        Committed to professionalism and excellence, we ensure minimal disruption to
+                                        your daily operations while achieving exceptional results. Choose our trusted
+                                        services for a cleaner, more polished environment.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Steam Cleaning Services UAE" loading="lazy">
+                                    <img src="Images/IMAGE FOR STEAM CLEANING.png" alt="Steam Cleaning Services UAE"
+                                        loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-temperature-high"></i> Steam Cleaning</h4>
-                                    <p>Eco-friendly steam cleaning for all surfaces</p>
+                                    <p>Enhance the cleanliness and hygiene of your environment with our advanced steam
+                                        cleaning services. Utilizing state-of-the-art equipment and high-temperature
+                                        steam, our trained professionals deliver a deep, chemical-free clean that
+                                        effectively eliminates dirt, bacteria, and allergens from a wide range of
+                                        surfaces, including carpets, upholstery, tiles, and hard floors. Our meticulous
+                                        approach ensures optimal sanitation while preserving the integrity of your
+                                        surfaces. Committed to excellence and eco-friendly practices, we provide
+                                        tailored solutions that meet the highest standards of cleanliness for both
+                                        residential.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR LAUNDRY & IRONING.png"
                                         alt="Laundry Ironing Service Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-tshirt"></i> Laundry & Ironing Service (In-House)</h4>
-                                    <p>Complete laundry and ironing services at your location</p>
+                                    <p>Experience the ultimate convenience with our expert in-house laundry and ironing
+                                        services, tailored to effortlessly elevate your wardrobe care. Our dedicated
+                                        team of professionals delivers meticulous laundry and precision ironing right at
+                                        your doorstep, ensuring every garment receives the highest level of care.
+                                        Whether it’s delicate silks or everyday essentials, we employ premium, safe
+                                        cleaning and pressing techniques to keep your clothes looking pristine, fresh,
+                                        and impeccably maintained. Designed for your busy lifestyle, our personalized
+                                        service offers flexible scheduling and a seamless, stress-free experience. Rely
+                                        on our experts to provide reliable, efficient, and top-tier garment care — so
+                                        you can enjoy a flawlessly neat wardrobe without lifting a finger.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1556911073-38141963c9e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Move In Out Cleaning Dubai" loading="lazy">
+                                    <img src="Images/IMAGE FOR MOVE IN & OUT CLN.png" alt="Move In Out Cleaning Dubai"
+                                        loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-truck-moving"></i> Move-In & Move-Out Cleaning</h4>
-                                    <p>Specialized cleaning for property transitions</p>
+                                    <p>Start fresh and leave a lasting impression with our premium Move-In and Move-Out
+                                        Cleaning Solutions. Whether you're stepping into a new home or bidding farewell
+                                        to an old one, our expert team transforms your space into a spotless sanctuary.
+                                        For move-in days, we craft a welcoming environment by deep cleaning every nook
+                                        and cranny, ensuring your new space feels pristine and inviting from the moment
+                                        you arrive. When it’s time to move out, we handle every detail with meticulous
+                                        care, leaving former home impeccably clean and ready for its next chapter.
+                                        Harnessing eco-friendly products , we deliver a service that’s quick, reliable,
+                                        and tailored to your busy schedule. Let us take the stress out of your move, so
+                                        you can focus on what truly matters your next adventure. Experience the
+                                        difference with our professional touch and enjoy a seamless, sparkling
+                                        transition every time.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR EVENT & PARTY CLEANING.png"
                                         alt="Event Party Cleaning Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-glass-cheers"></i> Event & Party Cleaning</h4>
-                                    <p>Pre and post-event cleaning services</p>
+                                    <p>Your unforgettable moments deserve a flawless backdrop. Let us transform the
+                                        chaos into a sparkling masterpiece! Our dedicated Event and Party Cleaning
+                                        Service is the secret ingredient to making every gathering extraordinary.
+                                        Before, during, and after the event. Imagine walking into a venue that’s
+                                        immaculately clean and inviting, setting the perfect tone for your celebration.
+                                        As the party unfolds, we discreetly handle every spill, mess, and dust bunny,
+                                        ensuring your space remains pristine without interrupting your flow. We work
+                                        swiftly to restore your venue to its pristine glory, leaving nothing but a trail
+                                        of satisfaction and admiration. Harnessing eco-friendly products and innovative
+                                        techniques, our team combines professionalism with passion to deliver a cleaning
+                                        experience that’s nothing short of exceptional. Whether it’s an intimate
+                                        gathering or a grand affair, trust us to make your event not only memorable but
+                                        also impeccably spotless.</p>
                                 </div>
                             </div>
                         </div>
@@ -1793,22 +1874,40 @@
                         <div class="services-grid">
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Office Cleaning Dubai" loading="lazy">
+                                    <img src="Images/IMAGE FOR OFFICE CLEANING.png" alt="Office Cleaning Dubai"
+                                        loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-briefcase"></i> Office Cleaning</h4>
-                                    <p>Daily, weekly, or monthly office cleaning services</p>
+                                    <p>Imagine walking into an office that feels fresh, vibrant, and perfectly polished
+                                        ,where every surface shines and every detail speaks of professionalism. Our
+                                        Office Cleaning Service doesn’t just clean, we create environments that motivate
+                                        and impress. Feel the difference of a space that’s meticulously maintained—free
+                                        of dust, grime, and clutter—empowering your team to perform at their very best.
+                                        Using innovative, eco-friendly products, our expert team delivers sparkling
+                                        results that turn your workplace into a stunning showcase of cleanliness and
+                                        sophistication. Whether you need daily touch-ups or deep cleaning, we tailor our
+                                        services to fit your needs—delivering consistent excellence that leaves a
+                                        lasting impression on clients and employees alike. Elevate your office. Elevate
+                                        your brand. Make every day shine with us. Experience the art of clean—where your
+                                        workspace becomes a source of pride and inspiration.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR CARPET CLEANING SERVICE.png"
                                         alt="Carpet Cleaning Services Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-layer-group"></i> Carpet Cleaning</h4>
-                                    <p>Professional carpet cleaning and maintenance</p>
+                                    <p>Our expert team uses powerful, eco-friendly solutions to lift dirt, eliminate
+                                        stains, and remove odors ,restoring your carpets’ beauty and extending their
+                                        lifespan. Whether it’s high-traffic areas or delicate fibers, we tailor our
+                                        approach to deliver flawless results every time. Breathe easier knowing your
+                                        space is healthier for your family, employees. With quick-drying, deep-clean
+                                        technology, we minimize disruption and maximize freshness. Experience the
+                                        difference a professional touch can make. Refresh your carpets today and enjoy a
+                                        cleaner, more comfortable space—because your environment deserves to shine.</p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -1818,27 +1917,61 @@
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-hard-hat"></i> Post Construction Cleaning</h4>
-                                    <p>Complete cleanup after construction or renovation</p>
+                                    <p>After completing a renovation, the last thing you want is to deal with leftover
+                                        dust, debris. Our Post-Renovation Cleaning Service is here to help you
+                                        transition smoothly into your newly renovated space. We provide a comprehensive
+                                        cleaning that removes all dust on surfaces, stubborn stains, and leftover
+                                        materials—leaving your environment spotless and fresh. Our team uses specialized
+                                        cleaning tools and eco-friendly products to ensure every corner is thoroughly
+                                        cleaned. Whether it’s a home renovation, office upgrade, or commercial project,
+                                        we customize our cleaning to meet your specific needs. Relax and enjoy your
+                                        beautifully transformed space without the stress of cleaning up. Contact us
+                                        today and let us turn your renovation chaos into a clean, welcoming space ready
+                                        for your next chapter.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR RESTAURANT CLEANING.png"
                                         alt="Restaurant Kitchen Cleaning Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-utensils"></i> Restaurant & Kitchen Cleaning</h4>
-                                    <p>Specialized cleaning for food service establishments</p>
+                                    <p>Maintaining a clean and hygienic environment is essential for the success of your
+                                        restaurant, hotel, or hospitality business. Our specialized cleaning services
+                                        are designed to meet the highest standards of cleanliness and sanitation,
+                                        ensuring your establishment is safe, inviting, and compliant with health
+                                        regulations. Restaurant & Kitchen Cleaning: We provide thorough cleaning of
+                                        dining areas, kitchens, food preparation surfaces, appliances, and cooking
+                                        equipment. We focus on eliminating germs, grease, and food residues, creating a
+                                        spotless and hygienic space for your customers and staff. Hotel & Hospitality
+                                        Cleaning: From guest rooms and lobbies to hallways and public areas, we deliver
+                                        meticulous cleaning services tailored to hospitality needs. We focus on
+                                        sanitation, comfort, and presentation, helping you leave a lasting positive
+                                        impression on your guests. We deliver quick, efficient, and discreet service
+                                        with minimal disruption to your operations. We customize our plans to fit your
+                                        schedule and specific requirements, providing reliable cleaning solutions that
+                                        uphold your reputation.</p>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR SCHOO & NURSERY CLEANING.png"
                                         alt="School Nursery Cleaning Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-school"></i> Schools & Nurseries Cleaning</h4>
-                                    <p>Child-safe cleaning for educational institutions</p>
+                                    <p>Our specialized cleaning services are tailored to meet the unique needs of
+                                        educational institutions, ensuring a hygienic and inviting space for learning
+                                        and development. We provide comprehensive cleaning of classrooms, play areas,
+                                        cafeterias, restrooms, common areas, and outdoor spaces. Our team focuses on
+                                        eliminating germs, dirt to promote a healthy environment for children and staff
+                                        alike. We use safe and effective cleaning methods to ensure all surfaces are
+                                        sanitized and hygienic, helping to prevent the spread of illnesses. Our flexible
+                                        scheduling options allow us to clean during times that minimize disruption to
+                                        daily activities. Our services include waste removal, dusting, floor cleaning,
+                                        disinfecting high-touch surfaces, and ensuring that all areas are spotless and
+                                        safe for children to learn and play.</p>
                                 </div>
                             </div>
                         </div>
@@ -1858,18 +1991,34 @@
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-couch"></i> Sofa Cleaning</h4>
-                                    <p>Professional sofa and upholstery cleaning</p>
+                                    <p>Revitalize your furniture and enjoy a cleaner, fresher living space with our
+                                        expert sofa cleaning service. We specialize in deep cleaning and stain removal,
+                                        helping your sofas look and feel like new. Our team uses advanced cleaning
+                                        techniques and eco-friendly solutions to effectively remove dirt, dust, stains,
+                                        and odors from all types of sofas and upholstered furniture. We tailor our
+                                        approach to suit different fabric types, ensuring a thorough and safe cleaning
+                                        process. Whether you need a quick refresh or a deep sanitation, our sofa
+                                        cleaning service improves air quality and extends the life of your furniture. We
+                                        work efficiently and discreetly, providing convenient scheduling options to suit
+                                        your needs. </p>
                                     <span class="service-badge">Specialized</span>
                                 </div>
                             </div>
                             <div class="service-item">
                                 <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    <img src="Images/IMAGE FOR CARPET CLEANING SERVICE.png"
                                         alt="Carpet Deep Cleaning Dubai" loading="lazy">
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-carpet"></i> Carpet Cleaning</h4>
-                                    <p>Deep carpet cleaning and stain removal</p>
+                                    <p>Our commercial carpet cleaning service delivers stunning results that will
+                                        captivate your clients and inspire your team. Imagine carpets so spotless and
+                                        fresh, they become the highlight of your space. With advanced cleaning
+                                        technology and eco-friendly solutions, we remove stubborn stains, eliminate
+                                        odors, and banish allergens, creating a healthier, more inviting workplace.
+                                        Fast, discreet, and reliable—our team works around your schedule to ensure
+                                        minimal disruption. Elevate your brand’s image and leave a lasting impression
+                                        with carpets that speak of quality and professionalism.</p>
                                 </div>
                             </div>
                         </div>
@@ -1889,7 +2038,15 @@
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-baby"></i> Nanny Service</h4>
-                                    <p>Professional childcare and nanny services</p>
+                                    <p>Looking for a caring and friendly person to look after your children? Our nanny
+                                        service connects you with warm and attentive caregivers who love working with
+                                        kids. We help you find someone who will keep your children happy, safe, and
+                                        engaged. Our nannies are experienced in playing, helping with daily routines,
+                                        and creating a fun, nurturing environment. They can assist with activities,
+                                        snacks, and bedtime, making sure your children feel comfortable and well cared
+                                        for. Whether you need help occasionally or regularly, we offer flexible options
+                                        to suit your needs. Let us help you find a friendly face your kids will enjoy
+                                        spending time with!</p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -1899,7 +2056,13 @@
                                 </div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-child"></i> Babysitter</h4>
-                                    <p>Reliable babysitting services for your peace of mind</p>
+                                    <p>Our babysitter service offers caring and cheerful caregivers who enjoy spending
+                                        time with kids. Whether it’s an evening out, a weekend, or just a few hours, we
+                                        help you find someone your children will feel comfortable with. Our babysitters
+                                        are friendly, attentive, and great at keeping kids happy and entertained. They
+                                        can help with snacks, games, and making sure your little ones are well looked
+                                        after. Flexible options available to fit your schedule. Let us connect you with
+                                        someone special who will make your kids’ time fun and safe.</p>
                                 </div>
                             </div>
                         </div>
@@ -1924,29 +2087,36 @@
                 </div>
 
                 <div class="services-container">
-                    <div class="amc-badge">
-                        <i class="fas fa-shield-alt"></i> Annual Maintenance Contract (AMC) Available
-                    </div>
-
                     <div class="services-grid" style="margin-top: 30px;">
                         <div class="service-item">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                    alt="Electrical Services Dubai" loading="lazy">
+                                <img src="Images/IMAGE FOR ELECTRIC SERVICE.png" alt="Electrical Services Dubai"
+                                    loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h4><i class="fas fa-bolt"></i> Electrical Service</h4>
-                                <p>Complete electrical repairs, installations, and maintenance</p>
+                                <p>Our team delivers expert electrical solutions that illuminate your space with safety
+                                    and precision. From intricate wiring to energy-efficient upgrades, every project is
+                                    handled with dedication and craftsmanship. We transform complex electrical
+                                    challenges into seamless, reliable systems that stand the test of time. With a focus
+                                    on innovation and safety, our electricians bring a spark of excellence to every job,
+                                    ensuring your home or business is powered efficiently and securely. Trust in our
+                                    expertise to light the way to a brighter, safer future.</p>
                             </div>
                         </div>
                         <div class="service-item">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                    alt="AC Services Dubai UAE" loading="lazy">
+                                <img src="Images/IMAGE FOR AC SERIVCE.png" alt="AC Services Dubai UAE" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h4><i class="fas fa-wind"></i> AC Services</h4>
-                                <p>AC installation, repair, maintenance, and cleaning</p>
+                                <p>Our team provides expert air conditioning solutions that keep your environment
+                                    comfortable and refreshing. From routine maintenance to urgent repairs and new
+                                    installations, every service is delivered with precision and care. We ensure your AC
+                                    system operates at peak efficiency, providing cool relief even on the hottest days.
+                                    With a focus on reliability and energy efficiency, our technicians bring expertise
+                                    and dedication to every job. Trust us to create a cool, comfortable atmosphere in
+                                    your home or business, enhancing your comfort and peace of mind all year round.</p>
                             </div>
                         </div>
                         <div class="service-item">
@@ -1956,13 +2126,15 @@
                             </div>
                             <div class="service-content">
                                 <h4><i class="fas fa-faucet"></i> Plumbing Services</h4>
-                                <p>All plumbing repairs, installations, and maintenance</p>
+                                <p>Our plumbing service ensures smooth and leak-free systems with expert repairs and
+                                    installations. We prioritize efficiency, durability, and customer satisfaction in
+                                    every job. Trust us to keep your water flowing effortlessly.</p>
                             </div>
                         </div>
                         <div class="service-item">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1564436872-f6d81182df12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                    alt="Painting Services Dubai UAE" loading="lazy">
+                                <img src="Images/IMAGE FOR PAINTING SERVICE.png" alt="Painting Services Dubai UAE"
+                                    loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h4><i class="fas fa-paint-roller"></i> Painting Services</h4>
@@ -1971,23 +2143,14 @@
                         </div>
                         <div class="service-item">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                    alt="Handyman Services Dubai" loading="lazy">
+                                <img src="Images/IMAGE FOR HANDYMAN SERIVCE.png" alt="Handyman Services Dubai"
+                                    loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h4><i class="fas fa-hammer"></i> Handyman Services</h4>
-                                <p>General repairs, installations, and maintenance work</p>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                    alt="Maintenance Contract UAE" loading="lazy">
-                            </div>
-                            <div class="service-content">
-                                <h4><i class="fas fa-file-contract"></i> Annual Maintenance Contract</h4>
-                                <p>Comprehensive AMC for all technical services</p>
-                                <span class="service-badge">Recommended</span>
+                                <p>Our handyman service offers quick and reliable solutions for all your home repair
+                                    needs. From minor fixes to general maintenance, we handle it with professionalism
+                                    and care. Count on us to keep your home in top condition.</p>
                             </div>
                         </div>
                     </div>
@@ -2003,7 +2166,6 @@
                 <h2>Our Work Gallery</h2>
                 <p>See our professional team in action delivering exceptional services</p>
             </div>
-
             <div class="gallery-container">
                 <div class="gallery-item-large">
                     <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -2048,43 +2210,31 @@
                 <h2>Contact Us</h2>
                 <p>Get in touch for all your cleaning and technical service needs</p>
             </div>
-
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
                             <h4>Address</h4>
                             <p>Dubai, United Arab Emirates</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-text">
                             <h4>Call Us</h4>
                             <p>+971 54 452 2101</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-text">
                             <h4>Email Us</h4>
                             <p>info@bluecitymaids.com</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-text">
                             <h4>Working Hours</h4>
                             <p>24/7 Emergency Services Available</p>
@@ -2092,7 +2242,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="contact-form">
                     <h3 style="margin-bottom: 20px; color: var(--primary-blue);">Quick Service Request</h3>
                     <form id="contactForm">
@@ -2100,12 +2249,10 @@
                             <label for="name">Full Name</label>
                             <input type="text" id="name" required>
                         </div>
-
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" required>
                         </div>
-
                         <div class="form-group">
                             <label for="serviceType">Service Category</label>
                             <select id="serviceType" required>
@@ -2122,16 +2269,12 @@
                                 <option value="amc">Annual Maintenance Contract</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label for="specificService">Specific Service Needed</label>
                             <input type="text" id="specificService" placeholder="e.g., Deep Cleaning, AC Repair, etc.">
                         </div>
-
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Request Service Callback
-                        </button>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Request Service
+                            Callback</button>
                     </form>
                 </div>
             </div>
@@ -2140,7 +2283,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- Animation Background Container -->
         <div class="footer-bg-anim">
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -2153,31 +2295,21 @@
             <div class="bubble"></div>
             <div class="bubble"></div>
         </div>
-
         <div class="container">
             <div class="footer-grid">
                 <div class="logo">
-                    <!-- FIX: Corrected alt text and wrapped in link -->
-                    <a href="#">
-                        <img src="Images/Bluecity-footerlogo.png" alt="Blue City Maids"></a>
+                    <a href="#"><img src="Images/Bluecity-footerlogo.png" alt="Blue City Maids"></a>
                     <p>Your complete solution for cleaning and technical services in UAE. Quality service guaranteed.
                     </p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61561671960077" target="_blank"
-                            rel="noopener noreferrer" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
+                            rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/bluecitymaid/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/971544522101" target="_blank" rel="noopener noreferrer"
-                            aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-column">
                     <h3>Cleaning Services</h3>
                     <ul class="footer-links">
@@ -2187,7 +2319,6 @@
                         <li><a href="#services">Homecare Services</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-column">
                     <h3>Technical Services</h3>
                     <ul class="footer-links">
@@ -2199,7 +2330,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="copyright">
                 <p>&copy; 2024 Blue City Maids. All Rights Reserved. | <a href="https://www.ajafitech.com"
                         target="_blank" rel="noopener noreferrer">Powered by AJAFi Technologies LLC</a></p>
@@ -2225,20 +2355,16 @@
     <div class="chat-modal" id="chatModal">
         <div class="chat-header">
             <h3><i class="fas fa-robot"></i> AI Service Assistant</h3>
-            <button class="close-chat" id="closeChatBtn" aria-label="Close chat">
-                <i class="fas fa-times"></i>
-            </button>
+            <button class="close-chat" id="closeChatBtn" aria-label="Close chat"><i class="fas fa-times"></i></button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="message ai-message">
-                Hello! I'm your AI Service Assistant. Let me help you book a service. What's your name?
-            </div>
+            <div class="message ai-message">Hello! I'm your AI Service Assistant. Let me help you book a service. What's
+                your name?</div>
         </div>
         <div class="chat-input">
             <input type="text" id="chatInput" placeholder="Type your message here..." autocomplete="off">
-            <button class="send-button" id="sendMessageBtn" aria-label="Send message">
-                <i class="fas fa-paper-plane"></i>
-            </button>
+            <button class="send-button" id="sendMessageBtn" aria-label="Send message"><i
+                    class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -2252,14 +2378,16 @@
                 <!-- Booking details will be inserted here -->
             </div>
 
-            <a href="#" class="whatsapp-button" id="whatsappButton" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                Send to WhatsApp
-            </a>
-            <br>
-            <button class="hero-button secondary-btn" id="editBookingBtn" style="margin-top: 10px;">
-                Edit Details
-            </button>
+            <!-- FIXED: Buttons in same row using flex container -->
+            <div class="modal-action-buttons">
+                <button class="hero-button secondary-btn" id="editBookingBtn">
+                    Edit Details
+                </button>
+                <a href="#" class="whatsapp-button" id="whatsappButton" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    Send to WhatsApp
+                </a>
+            </div>
         </div>
     </div>
 
@@ -2281,46 +2409,11 @@
         "@type": "OfferCatalog",
         "name": "Cleaning Services Catalog",
         "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Deep Cleaning Service",
-              "description": "Comprehensive deep cleaning for apartments and villas in Dubai"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "AC Service",
-              "description": "AC installation, repair, and maintenance services in UAE"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Plumbing Services",
-              "description": "All plumbing repairs, installations, and maintenance in Dubai"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Electrical Services",
-              "description": "Complete electrical services and repairs in UAE"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Annual Maintenance Contract",
-              "description": "Comprehensive AMC for cleaning and technical services in Dubai"
-            }
-          }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning Service", "description": "Comprehensive deep cleaning for apartments and villas in Dubai" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Service", "description": "AC installation, repair, and maintenance services in UAE" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plumbing Services", "description": "All plumbing repairs, installations, and maintenance in Dubai" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical Services", "description": "Complete electrical services and repairs in UAE" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Annual Maintenance Contract", "description": "Comprehensive AMC for cleaning and technical services in Dubai" } }
         ]
       }
     }
@@ -2331,20 +2424,15 @@
         const heroVideo = document.getElementById('heroVideo');
         const heroContent = document.querySelector('.hero-content');
 
-        // Function to show content
         function showHeroContent() {
-            heroContent.classList.add('loaded');
+            if (heroContent) heroContent.classList.add('loaded');
         }
 
-        // Check if video is already ready (e.g. cached)
-        if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+        if (heroVideo && heroVideo.readyState >= 3) {
             showHeroContent();
-        } else {
-            // Wait for video to be playable
+        } else if (heroVideo) {
             heroVideo.addEventListener('canplay', showHeroContent);
         }
-
-        // Fallback: If video takes too long or fails, show text anyway after 3s
         setTimeout(showHeroContent, 3000);
 
         // Mobile Navigation
@@ -2353,12 +2441,9 @@
 
         mobileNavToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            mobileNavToggle.innerHTML = navMenu.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
+            mobileNavToggle.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.navmenu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -2374,18 +2459,17 @@
         setInterval(() => {
             index = (index + 1) % textOptions.length;
             const span = callButton.querySelector('span');
-            span.textContent = textOptions[index];
+            if (span) span.textContent = textOptions[index];
         }, 2000);
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -2398,10 +2482,8 @@
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-
             const name = document.getElementById('name').value;
             const serviceType = document.getElementById('serviceType').value;
-
             alert(`Thank you ${name}! Your ${serviceType} request has been received. We will call you within 30 minutes.`);
             contactForm.reset();
         });
@@ -2428,20 +2510,10 @@
         const whatsappButton = document.getElementById('whatsappButton');
         const editBookingBtn = document.getElementById('editBookingBtn');
 
-        // Service Data
         let serviceData = {
-            name: '',
-            phone: '',
-            serviceCategory: '',
-            specificService: '',
-            date: '',
-            time: '',
-            address: '',
-            frequency: 'One-time',
-            specialInstructions: ''
+            name: '', phone: '', serviceCategory: '', specificService: '', date: '', time: '', address: '', frequency: 'One-time', specialInstructions: ''
         };
 
-        // Chat Flow
         let chatStep = 0;
         const chatQuestions = [
             "What's your name?",
@@ -2455,40 +2527,22 @@
             "Any special instructions or requirements?"
         ];
 
-        // Open Chat
         function openChat() {
             chatModal.classList.add('active');
             chatInput.focus();
             resetChat();
         }
 
-        // Close Chat
         function closeChat() {
             chatModal.classList.remove('active');
         }
 
-        // Reset Chat
         function resetChat() {
-            chatBody.innerHTML = `
-                <div class="message ai-message">
-                    Hello! I'm your AI Service Assistant. Let me help you book a service. What's your name?
-                </div>
-            `;
+            chatBody.innerHTML = `<div class="message ai-message">Hello! I'm your AI Service Assistant. Let me help you book a service. What's your name?</div>`;
             chatStep = 0;
-            serviceData = {
-                name: '',
-                phone: '',
-                serviceCategory: '',
-                specificService: '',
-                date: '',
-                time: '',
-                address: '',
-                frequency: 'One-time',
-                specialInstructions: ''
-            };
+            serviceData = { name: '', phone: '', serviceCategory: '', specificService: '', date: '', time: '', address: '', frequency: 'One-time', specialInstructions: '' };
         }
 
-        // Add Message
         function addMessage(text, isUser = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
@@ -2497,16 +2551,13 @@
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        // Process Input
         function processInput() {
             const message = chatInput.value.trim();
             if (!message) return;
 
-            // Add user message
             addMessage(message, true);
             chatInput.value = '';
 
-            // Store response
             switch (chatStep) {
                 case 0: serviceData.name = message; break;
                 case 1: serviceData.phone = message; break;
@@ -2519,14 +2570,11 @@
                 case 8: serviceData.specialInstructions = message; break;
             }
 
-            // Move to next step
             chatStep++;
 
             if (chatStep < chatQuestions.length) {
                 setTimeout(() => {
                     addMessage(chatQuestions[chatStep]);
-
-                    // Show quick options
                     if (chatStep === 2) showCategoryOptions();
                     else if (chatStep === 5) showTimeOptions();
                     else if (chatStep === 7) showFrequencyOptions();
@@ -2539,7 +2587,6 @@
             }
         }
 
-        // Show Options
         function showCategoryOptions() {
             const optionsDiv = document.createElement('div');
             optionsDiv.className = 'chat-option';
@@ -2577,13 +2624,11 @@
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        // Select Option
         window.selectOption = function (value) {
             chatInput.value = value;
             processInput();
         };
 
-        // Show Confirmation
         function showConfirmation() {
             const detailsDiv = document.getElementById('bookingDetails');
             detailsDiv.innerHTML = `
@@ -2615,23 +2660,21 @@ Special Instructions: ${serviceData.specialInstructions || 'None'}
 Please confirm this service request.`;
 
             const encodedMessage = encodeURIComponent(message);
+            // FIX: Ensure href is updated correctly
             whatsappButton.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
             closeChat();
             confirmationModal.classList.add('active');
         }
 
-        // Edit Booking
         editBookingBtn.addEventListener('click', () => {
             confirmationModal.classList.remove('active');
             openChat();
-
             setTimeout(() => {
                 addMessage("Let's update your service request. What's your name?");
             }, 300);
         });
 
-        // Event Listeners
         aiAssistantBtn.addEventListener('click', openChat);
         startChatBtn.addEventListener('click', openChat);
         closeChatBtn.addEventListener('click', closeChat);
@@ -2641,87 +2684,74 @@ Please confirm this service request.`;
             if (e.key === 'Enter') processInput();
         });
 
-        // Close modals when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === confirmationModal) {
                 confirmationModal.classList.remove('active');
             }
         });
 
-        // Initialize with current year in copyright
         document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} Blue City Maids. All Rights Reserved. | <a href="https://www.ajafitech.com" target="_blank" rel="noopener noreferrer">Powered by AJAFi Technologies LLC</a>`;
-
-        // Service item click handlers for quick booking (opens AI chat)
-        document.querySelectorAll('.service-item').forEach(item => {
-            item.addEventListener('click', function () {
-                const serviceName = this.querySelector('h4').textContent.trim();
-                const serviceDesc = this.querySelector('p').textContent;
-
-                openChat();
-                setTimeout(() => {
-                    addMessage(`I'd like to book: ${serviceName} - ${serviceDesc}`, true);
-                    serviceData.specificService = serviceName;
-                    serviceData.serviceCategory = serviceName.includes('Cleaning') ? 'Cleaning Services' :
-                        serviceName.includes('Service') ? 'Technical Services' : 'Homecare Services';
-                    chatStep = 3; // Skip to specific service step
-                    setTimeout(() => {
-                        addMessage(chatQuestions[chatStep]);
-                    }, 500);
-                }, 300);
-            });
-        });
-
-        // Gallery item hover effects
-        document.querySelectorAll('.gallery-item-large').forEach(item => {
-            item.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-10px)';
-            });
-
-            item.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-            });
-        });
 
         // Add WhatsApp Book Now buttons to each service item
         document.addEventListener('DOMContentLoaded', function () {
             const serviceItems = document.querySelectorAll('.service-item');
             serviceItems.forEach(item => {
-                // Skip if button already exists
                 if (item.querySelector('.book-now-btn')) return;
 
                 const serviceContent = item.querySelector('.service-content');
                 if (!serviceContent) return;
 
-                // Get service name from h4
                 const h4 = serviceContent.querySelector('h4');
                 if (!h4) return;
                 let serviceName = h4.innerText.trim();
 
-                // Create WhatsApp button
+                const p = serviceContent.querySelector('p');
+                let showMoreBtn = null;
+
+                if (p) {
+                    p.classList.add('line-clamp-2');
+                    if (p.scrollHeight > p.clientHeight) {
+                        showMoreBtn = document.createElement('button');
+                        showMoreBtn.className = 'show-more-btn';
+                        showMoreBtn.innerHTML = 'Show more <i class="fas fa-chevron-down" style="font-size:10px; margin-left:3px;"></i>';
+
+                        showMoreBtn.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            const isCollapsed = p.classList.contains('line-clamp-2');
+                            if (isCollapsed) {
+                                p.classList.remove('line-clamp-2');
+                                this.innerHTML = 'Show less <i class="fas fa-chevron-up" style="font-size:10px; margin-left:3px;"></i>';
+                            } else {
+                                p.classList.add('line-clamp-2');
+                                this.innerHTML = 'Show more <i class="fas fa-chevron-down" style="font-size:10px; margin-left:3px;"></i>';
+                            }
+                        });
+                        p.insertAdjacentElement('afterend', showMoreBtn);
+                    } else {
+                        p.classList.remove('line-clamp-2');
+                    }
+                }
+
                 const bookBtn = document.createElement('a');
                 bookBtn.className = 'book-now-btn';
                 bookBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Book Now';
                 bookBtn.href = '#';
                 bookBtn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    e.stopPropagation(); // Prevent triggering the service-item click
+                    e.stopPropagation();
                     const phone = '971544522101';
                     const message = `Hi, I'm interested in "${serviceName}" service from Blue City Maids. Can you provide more details?`;
                     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
                     window.open(url, '_blank');
                 });
 
-                // Insert after the badge if exists, otherwise after the paragraph
                 const badge = serviceContent.querySelector('.service-badge');
                 if (badge) {
                     badge.insertAdjacentElement('afterend', bookBtn);
                 } else {
-                    const p = serviceContent.querySelector('p');
-                    if (p) {
-                        p.insertAdjacentElement('afterend', bookBtn);
-                    } else {
-                        serviceContent.appendChild(bookBtn);
-                    }
+                    if (showMoreBtn) showMoreBtn.insertAdjacentElement('afterend', bookBtn);
+                    else if (p) p.insertAdjacentElement('afterend', bookBtn);
+                    else serviceContent.appendChild(bookBtn);
                 }
             });
         });
