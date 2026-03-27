@@ -558,10 +558,12 @@
             padding: 40px;
         }
 
+        /* FIX APPLIED HERE: Added align-items: flex-start */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
+            align-items: flex-start; 
         }
 
         .service-item {
@@ -585,6 +587,18 @@
         }
 
         .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .deepCleaning-image {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .deepCleaning-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -692,13 +706,13 @@
             margin-left: 0;
         }
 
-.service-category:last-of-type .services-grid .service-item:first-child {
-    
-  width: 100%;
-  
-   
-}
-        
+        .service-category:last-of-type .services-grid .service-item:first-child {
+
+            width: 100%;
+
+
+        }
+
         .amc-badge {
             background: linear-gradient(135deg, #FF6B35, #FFA500);
             color: white;
@@ -1710,6 +1724,19 @@
                             <i class="fas fa-home"></i> 1. Residential Cleaning
                         </h3>
                         <div class="services-grid">
+                             <div class="service-item">
+                                <div class="service-image">
+                                    <img src="Images/maid-Service.png"
+                                        alt="Deep Cleaning Apartment Villa Dubai" loading="lazy">
+                                </div>
+                                <div class="service-content">
+                                    <h4><i class="fas fa-tint"></i>  Maid service</h4>
+                                    <p>Expert housekeeping services tailored to your needs. Whether you require routine cleaning, intensive deep cleaning, or focused attention on certain areas, our experienced maids deliver top-quality results. They handle dusting, mopping, bathroom sanitation, and more to keep your home pristine, organized, and cozy. Enjoy a fresh and welcoming environment.
+                                         Book your cleaning today! Available daily, weekly, or monthly to suit your schedule.</p>
+                                    <span class="service-badge">Popular Service</span>
+                                </div>
+                            </div>
+
                             <div class="service-item">
                                 <div class="service-image">
                                     <img src="Images/IMAGE FOR DEEP CLEANING.png"
@@ -1865,297 +1892,281 @@
                         </div>
                     </div>
 
-                    <!-- Commercial Cleaning -->
-                    <div style="margin-bottom: 40px;">
-                        <h3
-                            style="color: var(--primary-blue); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-building"></i> 2. Commercial Cleaning
-                        </h3>
-                        <div class="services-grid">
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="Images/IMAGE FOR OFFICE CLEANING.png" alt="Office Cleaning Dubai"
-                                        loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-briefcase"></i> Office Cleaning</h4>
-                                    <p>Imagine walking into an office that feels fresh, vibrant, and perfectly polished
-                                        ,where every surface shines and every detail speaks of professionalism. Our
-                                        Office Cleaning Service doesn’t just clean, we create environments that motivate
-                                        and impress. Feel the difference of a space that’s meticulously maintained—free
-                                        of dust, grime, and clutter—empowering your team to perform at their very best.
-                                        Using innovative, eco-friendly products, our expert team delivers sparkling
-                                        results that turn your workplace into a stunning showcase of cleanliness and
-                                        sophistication. Whether you need daily touch-ups or deep cleaning, we tailor our
-                                        services to fit your needs—delivering consistent excellence that leaves a
-                                        lasting impression on clients and employees alike. Elevate your office. Elevate
-                                        your brand. Make every day shine with us. Experience the art of clean—where your
-                                        workspace becomes a source of pride and inspiration.</p>
-                                </div>
+
+                <!-- Commercial Cleaning -->
+                <div style="margin-bottom: 40px;">
+                    <h3
+                        style="color: var(--primary-blue); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-building"></i> 2. Commercial Cleaning
+                    </h3>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/IMAGE FOR OFFICE CLEANING.png" alt="Office Cleaning Dubai"
+                                    loading="lazy">
                             </div>
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="Images/IMAGE FOR CARPET CLEANING SERVICE.png"
-                                        alt="Carpet Cleaning Services Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-layer-group"></i> Carpet Cleaning</h4>
-                                    <p>Our expert team uses powerful, eco-friendly solutions to lift dirt, eliminate
-                                        stains, and remove odors ,restoring your carpets’ beauty and extending their
-                                        lifespan. Whether it’s high-traffic areas or delicate fibers, we tailor our
-                                        approach to deliver flawless results every time. Breathe easier knowing your
-                                        space is healthier for your family, employees. With quick-drying, deep-clean
-                                        technology, we minimize disruption and maximize freshness. Experience the
-                                        difference a professional touch can make. Refresh your carpets today and enjoy a
-                                        cleaner, more comfortable space—because your environment deserves to shine.</p>
-                                </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-briefcase"></i> Office Cleaning</h4>
+                                <p>Imagine walking into an office that feels fresh, vibrant, and perfectly polished
+                                    ,where every surface shines and every detail speaks of professionalism. Our
+                                    Office Cleaning Service doesn’t just clean, we create environments that motivate
+                                    and impress. Feel the difference of a space that’s meticulously maintained—free
+                                    of dust, grime, and clutter—empowering your team to perform at their very best.
+                                    Using innovative, eco-friendly products, our expert team delivers sparkling
+                                    results that turn your workplace into a stunning showcase of cleanliness and
+                                    sophistication. Whether you need daily touch-ups or deep cleaning, we tailor our
+                                    services to fit your needs—delivering consistent excellence that leaves a
+                                    lasting impression on clients and employees alike. Elevate your office. Elevate
+                                    your brand. Make every day shine with us. Experience the art of clean—where your
+                                    workspace becomes a source of pride and inspiration.</p>
                             </div>
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Post Construction Cleaning UAE" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-hard-hat"></i> Post Construction Cleaning</h4>
-                                    <p>After completing a renovation, the last thing you want is to deal with leftover
-                                        dust, debris. Our Post-Renovation Cleaning Service is here to help you
-                                        transition smoothly into your newly renovated space. We provide a comprehensive
-                                        cleaning that removes all dust on surfaces, stubborn stains, and leftover
-                                        materials—leaving your environment spotless and fresh. Our team uses specialized
-                                        cleaning tools and eco-friendly products to ensure every corner is thoroughly
-                                        cleaned. Whether it’s a home renovation, office upgrade, or commercial project,
-                                        we customize our cleaning to meet your specific needs. Relax and enjoy your
-                                        beautifully transformed space without the stress of cleaning up. Contact us
-                                        today and let us turn your renovation chaos into a clean, welcoming space ready
-                                        for your next chapter.</p>
-                                </div>
+                        </div>
+                    
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    alt="Post Construction Cleaning UAE" loading="lazy">
                             </div>
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="Images/IMAGE FOR RESTAURANT CLEANING.png"
-                                        alt="Restaurant Kitchen Cleaning Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-utensils"></i> Restaurant & Kitchen Cleaning</h4>
-                                    <p>Maintaining a clean and hygienic environment is essential for the success of your
-                                        restaurant, hotel, or hospitality business. Our specialized cleaning services
-                                        are designed to meet the highest standards of cleanliness and sanitation,
-                                        ensuring your establishment is safe, inviting, and compliant with health
-                                        regulations. Restaurant & Kitchen Cleaning: We provide thorough cleaning of
-                                        dining areas, kitchens, food preparation surfaces, appliances, and cooking
-                                        equipment. We focus on eliminating germs, grease, and food residues, creating a
-                                        spotless and hygienic space for your customers and staff. Hotel & Hospitality
-                                        Cleaning: From guest rooms and lobbies to hallways and public areas, we deliver
-                                        meticulous cleaning services tailored to hospitality needs. We focus on
-                                        sanitation, comfort, and presentation, helping you leave a lasting positive
-                                        impression on your guests. We deliver quick, efficient, and discreet service
-                                        with minimal disruption to your operations. We customize our plans to fit your
-                                        schedule and specific requirements, providing reliable cleaning solutions that
-                                        uphold your reputation.</p>
-                                </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-hard-hat"></i> Post Construction Cleaning</h4>
+                                <p>After completing a renovation, the last thing you want is to deal with leftover
+                                    dust, debris. Our Post-Renovation Cleaning Service is here to help you
+                                    transition smoothly into your newly renovated space. We provide a comprehensive
+                                    cleaning that removes all dust on surfaces, stubborn stains, and leftover
+                                    materials—leaving your environment spotless and fresh. Our team uses specialized
+                                    cleaning tools and eco-friendly products to ensure every corner is thoroughly
+                                    cleaned. Whether it’s a home renovation, office upgrade, or commercial project,
+                                    we customize our cleaning to meet your specific needs. Relax and enjoy your
+                                    beautifully transformed space without the stress of cleaning up. Contact us
+                                    today and let us turn your renovation chaos into a clean, welcoming space ready
+                                    for your next chapter.</p>
                             </div>
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="Images/IMAGE FOR SCHOO & NURSERY CLEANING.png"
-                                        alt="School Nursery Cleaning Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-school"></i> Schools & Nurseries Cleaning</h4>
-                                    <p>Our specialized cleaning services are tailored to meet the unique needs of
-                                        educational institutions, ensuring a hygienic and inviting space for learning
-                                        and development. We provide comprehensive cleaning of classrooms, play areas,
-                                        cafeterias, restrooms, common areas, and outdoor spaces. Our team focuses on
-                                        eliminating germs, dirt to promote a healthy environment for children and staff
-                                        alike. We use safe and effective cleaning methods to ensure all surfaces are
-                                        sanitized and hygienic, helping to prevent the spread of illnesses. Our flexible
-                                        scheduling options allow us to clean during times that minimize disruption to
-                                        daily activities. Our services include waste removal, dusting, floor cleaning,
-                                        disinfecting high-touch surfaces, and ensuring that all areas are spotless and
-                                        safe for children to learn and play.</p>
-                                </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/IMAGE FOR RESTAURANT CLEANING.png"
+                                    alt="Restaurant Kitchen Cleaning Dubai" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-utensils"></i> Restaurant & Kitchen Cleaning</h4>
+                                <p>Maintaining a clean and hygienic environment is essential for the success of your
+                                    restaurant, hotel, or hospitality business. Our specialized cleaning services
+                                    are designed to meet the highest standards of cleanliness and sanitation,
+                                    ensuring your establishment is safe, inviting, and compliant with health
+                                    regulations. Restaurant & Kitchen Cleaning: We provide thorough cleaning of
+                                    dining areas, kitchens, food preparation surfaces, appliances, and cooking
+                                    equipment. We focus on eliminating germs, grease, and food residues, creating a
+                                    spotless and hygienic space for your customers and staff. Hotel & Hospitality
+                                    Cleaning: From guest rooms and lobbies to hallways and public areas, we deliver
+                                    meticulous cleaning services tailored to hospitality needs. We focus on
+                                    sanitation, comfort, and presentation, helping you leave a lasting positive
+                                    impression on your guests. We deliver quick, efficient, and discreet service
+                                    with minimal disruption to your operations. We customize our plans to fit your
+                                    schedule and specific requirements, providing reliable cleaning solutions that
+                                    uphold your reputation.</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/IMAGE FOR SCHOO & NURSERY CLEANING.png"
+                                    alt="School Nursery Cleaning Dubai" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-school"></i> Schools & Nurseries Cleaning</h4>
+                                <p>Our specialized cleaning services are tailored to meet the unique needs of
+                                    educational institutions, ensuring a hygienic and inviting space for learning
+                                    and development. We provide comprehensive cleaning of classrooms, play areas,
+                                    cafeterias, restrooms, common areas, and outdoor spaces. Our team focuses on
+                                    eliminating germs, dirt to promote a healthy environment for children and staff
+                                    alike. We use safe and effective cleaning methods to ensure all surfaces are
+                                    sanitized and hygienic, helping to prevent the spread of illnesses. Our flexible
+                                    scheduling options allow us to clean during times that minimize disruption to
+                                    daily activities. Our services include waste removal, dusting, floor cleaning,
+                                    disinfecting high-touch surfaces, and ensuring that all areas are spotless and
+                                    safe for children to learn and play.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Furniture Cleaning -->
-                    <div style="margin-bottom: 40px;">
-                        <h3
-                            style="color: var(--primary-blue); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-couch"></i> 3. Furniture Cleaning
-                        </h3>
-                        <div class="services-grid">
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Sofa Cleaning Services Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-couch"></i> Sofa Cleaning</h4>
-                                    <p>Revitalize your furniture and enjoy a cleaner, fresher living space with our
-                                        expert sofa cleaning service. We specialize in deep cleaning and stain removal,
-                                        helping your sofas look and feel like new. Our team uses advanced cleaning
-                                        techniques and eco-friendly solutions to effectively remove dirt, dust, stains,
-                                        and odors from all types of sofas and upholstered furniture. We tailor our
-                                        approach to suit different fabric types, ensuring a thorough and safe cleaning
-                                        process. Whether you need a quick refresh or a deep sanitation, our sofa
-                                        cleaning service improves air quality and extends the life of your furniture. We
-                                        work efficiently and discreetly, providing convenient scheduling options to suit
-                                        your needs. </p>
-                                    <span class="service-badge">Specialized</span>
-                                </div>
+                <!-- Furniture Cleaning -->
+                <div style="margin-bottom: 40px;">
+                    <h3
+                        style="color: var(--primary-blue); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-couch"></i> 3. Furniture Cleaning
+                    </h3>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/sofaCleaning.png"
+                                    alt="Sofa Cleaning Services Dubai" loading="lazy">
                             </div>
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="Images/IMAGE FOR CARPET CLEANING SERVICE.png"
-                                        alt="Carpet Deep Cleaning Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-carpet"></i> Carpet Cleaning</h4>
-                                    <p>Our commercial carpet cleaning service delivers stunning results that will
-                                        captivate your clients and inspire your team. Imagine carpets so spotless and
-                                        fresh, they become the highlight of your space. With advanced cleaning
-                                        technology and eco-friendly solutions, we remove stubborn stains, eliminate
-                                        odors, and banish allergens, creating a healthier, more inviting workplace.
-                                        Fast, discreet, and reliable—our team works around your schedule to ensure
-                                        minimal disruption. Elevate your brand’s image and leave a lasting impression
-                                        with carpets that speak of quality and professionalism.</p>
-                                </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-couch"></i> Sofa Cleaning</h4>
+                                <p>Revitalize your furniture and enjoy a cleaner, fresher living space with our
+                                    expert sofa cleaning service. We specialize in deep cleaning and stain removal,
+                                    helping your sofas look and feel like new. Our team uses advanced cleaning
+                                    techniques and eco-friendly solutions to effectively remove dirt, dust, stains,
+                                    and odors from all types of sofas and upholstered furniture. We tailor our
+                                    approach to suit different fabric types, ensuring a thorough and safe cleaning
+                                    process. Whether you need a quick refresh or a deep sanitation, our sofa
+                                    cleaning service improves air quality and extends the life of your furniture. We
+                                    work efficiently and discreetly, providing convenient scheduling options to suit
+                                    your needs. </p>
+                                <span class="service-badge">Specialized</span>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/IMAGE FOR CARPET CLEANING SERVICE.png" alt="Carpet Deep Cleaning Dubai"
+                                    loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-carpet"></i> Carpet Cleaning</h4>
+                                <p>Our commercial carpet cleaning service delivers stunning results that will
+                                    captivate your clients and inspire your team. Imagine carpets so spotless and
+                                    fresh, they become the highlight of your space. With advanced cleaning
+                                    technology and eco-friendly solutions, we remove stubborn stains, eliminate
+                                    odors, and banish allergens, creating a healthier, more inviting workplace.
+                                    Fast, discreet, and reliable—our team works around your schedule to ensure
+                                    minimal disruption. Elevate your brand’s image and leave a lasting impression
+                                    with carpets that speak of quality and professionalism.</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Homecare -->
-                    <div>
-                        <h3
-                            style="color: var(--primary-blue); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-heart"></i> 4. Homecare
-                        </h3>
-                        <div class="services-grid">
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Nanny Service Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-baby"></i> Nanny Service</h4>
-                                    <p>Looking for a caring and friendly person to look after your children? Our nanny
-                                        service connects you with warm and attentive caregivers who love working with
-                                        kids. We help you find someone who will keep your children happy, safe, and
-                                        engaged. Our nannies are experienced in playing, helping with daily routines,
-                                        and creating a fun, nurturing environment. They can assist with activities,
-                                        snacks, and bedtime, making sure your children feel comfortable and well cared
-                                        for. Whether you need help occasionally or regularly, we offer flexible options
-                                        to suit your needs. Let us help you find a friendly face your kids will enjoy
-                                        spending time with!</p>
-                                </div>
+                <!-- Homecare -->
+                <div>
+                    <h3
+                        style="color: var(--primary-blue); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-heart"></i> 4. Homecare
+                    </h3>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/nannyimage.png"
+                                    alt="Nanny Service Dubai" loading="lazy">
                             </div>
-                            <div class="service-item">
-                                <div class="service-image">
-                                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Babysitting Services Dubai" loading="lazy">
-                                </div>
-                                <div class="service-content">
-                                    <h4><i class="fas fa-child"></i> Babysitter</h4>
-                                    <p>Our babysitter service offers caring and cheerful caregivers who enjoy spending
-                                        time with kids. Whether it’s an evening out, a weekend, or just a few hours, we
-                                        help you find someone your children will feel comfortable with. Our babysitters
-                                        are friendly, attentive, and great at keeping kids happy and entertained. They
-                                        can help with snacks, games, and making sure your little ones are well looked
-                                        after. Flexible options available to fit your schedule. Let us connect you with
-                                        someone special who will make your kids’ time fun and safe.</p>
-                                </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-baby"></i> Nanny Service</h4>
+                                <p>Looking for a caring and friendly person to look after your children? Our nanny
+                                    service connects you with warm and attentive caregivers who love working with
+                                    kids. We help you find someone who will keep your children happy, safe, and
+                                    engaged. Our nannies are experienced in playing, helping with daily routines,
+                                    and creating a fun, nurturing environment. They can assist with activities,
+                                    snacks, and bedtime, making sure your children feel comfortable and well cared
+                                    for. Whether you need help occasionally or regularly, we offer flexible options
+                                    to suit your needs. Let us help you find a friendly face your kids will enjoy
+                                    spending time with!</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-image">
+                                <img src="Images/baby sitter.png"
+                                    alt="Babysitting Services Dubai" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h4><i class="fas fa-child"></i> Babysitter</h4>
+                                <p>Our babysitter service offers caring and cheerful caregivers who enjoy spending
+                                    time with kids. Whether it’s an evening out, a weekend, or just a few hours, we
+                                    help you find someone your children will feel comfortable with. Our babysitters
+                                    are friendly, attentive, and great at keeping kids happy and entertained. They
+                                    can help with snacks, games, and making sure your little ones are well looked
+                                    after. Flexible options available to fit your schedule. Let us connect you with
+                                    someone special who will make your kids’ time fun and safe.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Technical Services Category -->
-            <div class="service-category">
-                <div class="category-banner">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
-                        alt="Technical Services Dubai UAE" loading="lazy">
-                    <div class="category-overlay">
-                        <div class="category-header">
-                            <div class="category-icon"
-                                style="background: rgba(255, 255, 255, 0.9); color: var(--orange);">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h2 class="category-title">TECHNICAL SERVICES</h2>
+        <!-- Technical Services Category -->
+        <div class="service-category">
+            <div class="category-banner">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                    alt="Technical Services Dubai UAE" loading="lazy">
+                <div class="category-overlay">
+                    <div class="category-header">
+                        <div class="category-icon" style="background: rgba(255, 255, 255, 0.9); color: var(--orange);">
+                            <i class="fas fa-tools"></i>
                         </div>
+                        <h2 class="category-title">TECHNICAL SERVICES</h2>
                     </div>
                 </div>
+            </div>
 
-                <div class="services-container">
-                    <div class="services-grid" style="margin-top: 30px;">
-                        <div class="service-item">
-                            <div class="service-image">
-                                <img src="Images/IMAGE FOR ELECTRIC SERVICE.png" alt="Electrical Services Dubai"
-                                    loading="lazy">
-                            </div>
-                            <div class="service-content">
-                                <h4><i class="fas fa-bolt"></i> Electrical Service</h4>
-                                <p>Our team delivers expert electrical solutions that illuminate your space with safety
-                                    and precision. From intricate wiring to energy-efficient upgrades, every project is
-                                    handled with dedication and craftsmanship. We transform complex electrical
-                                    challenges into seamless, reliable systems that stand the test of time. With a focus
-                                    on innovation and safety, our electricians bring a spark of excellence to every job,
-                                    ensuring your home or business is powered efficiently and securely. Trust in our
-                                    expertise to light the way to a brighter, safer future.</p>
-                            </div>
+            <div class="services-container">
+                <div class="services-grid" style="margin-top: 30px;">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="Images/IMAGE FOR ELECTRIC SERVICE.png" alt="Electrical Services Dubai"
+                                loading="lazy">
                         </div>
-                        <div class="service-item">
-                            <div class="service-image">
-                                <img src="Images/IMAGE FOR AC SERIVCE.png" alt="AC Services Dubai UAE" loading="lazy">
-                            </div>
-                            <div class="service-content">
-                                <h4><i class="fas fa-wind"></i> AC Services</h4>
-                                <p>Our team provides expert air conditioning solutions that keep your environment
-                                    comfortable and refreshing. From routine maintenance to urgent repairs and new
-                                    installations, every service is delivered with precision and care. We ensure your AC
-                                    system operates at peak efficiency, providing cool relief even on the hottest days.
-                                    With a focus on reliability and energy efficiency, our technicians bring expertise
-                                    and dedication to every job. Trust us to create a cool, comfortable atmosphere in
-                                    your home or business, enhancing your comfort and peace of mind all year round.</p>
-                            </div>
+                        <div class="service-content">
+                            <h4><i class="fas fa-bolt"></i> Electrical Service</h4>
+                            <p>Our team delivers expert electrical solutions that illuminate your space with safety
+                                and precision. From intricate wiring to energy-efficient upgrades, every project is
+                                handled with dedication and craftsmanship. We transform complex electrical
+                                challenges into seamless, reliable systems that stand the test of time. With a focus
+                                on innovation and safety, our electricians bring a spark of excellence to every job,
+                                ensuring your home or business is powered efficiently and securely. Trust in our
+                                expertise to light the way to a brighter, safer future.</p>
                         </div>
-                        <div class="service-item">
-                            <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                    alt="Plumbing Services Dubai" loading="lazy">
-                            </div>
-                            <div class="service-content">
-                                <h4><i class="fas fa-faucet"></i> Plumbing Services</h4>
-                                <p>Our plumbing service ensures smooth and leak-free systems with expert repairs and
-                                    installations. We prioritize efficiency, durability, and customer satisfaction in
-                                    every job. Trust us to keep your water flowing effortlessly.</p>
-                            </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="Images/IMAGE FOR AC SERIVCE.png" alt="AC Services Dubai UAE" loading="lazy">
                         </div>
-                        <div class="service-item">
-                            <div class="service-image">
-                                <img src="Images/IMAGE FOR PAINTING SERVICE.png" alt="Painting Services Dubai UAE"
-                                    loading="lazy">
-                            </div>
-                            <div class="service-content">
-                                <h4><i class="fas fa-paint-roller"></i> Painting Services</h4>
-                                <p>Interior and exterior painting for residential & commercial</p>
-                            </div>
+                        <div class="service-content">
+                            <h4><i class="fas fa-wind"></i> AC Services</h4>
+                            <p>Our team provides expert air conditioning solutions that keep your environment
+                                comfortable and refreshing. From routine maintenance to urgent repairs and new
+                                installations, every service is delivered with precision and care. We ensure your AC
+                                system operates at peak efficiency, providing cool relief even on the hottest days.
+                                With a focus on reliability and energy efficiency, our technicians bring expertise
+                                and dedication to every job. Trust us to create a cool, comfortable atmosphere in
+                                your home or business, enhancing your comfort and peace of mind all year round.</p>
                         </div>
-                        <div class="service-item">
-                            <div class="service-image">
-                                <img src="Images/IMAGE FOR HANDYMAN SERIVCE.png" alt="Handyman Services Dubai"
-                                    loading="lazy">
-                            </div>
-                            <div class="service-content">
-                                <h4><i class="fas fa-hammer"></i> Handyman Services</h4>
-                                <p>Our handyman service offers quick and reliable solutions for all your home repair
-                                    needs. From minor fixes to general maintenance, we handle it with professionalism
-                                    and care. Count on us to keep your home in top condition.</p>
-                            </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="Images/plumbing.png"
+                                alt="Plumbing Services Dubai" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h4><i class="fas fa-faucet"></i> Plumbing Services</h4>
+                            <p>Our plumbing service ensures smooth and leak-free systems with expert repairs and
+                                installations. We prioritize efficiency, durability, and customer satisfaction in
+                                every job. Trust us to keep your water flowing effortlessly.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="Images/IMAGE FOR PAINTING SERVICE.png" alt="Painting Services Dubai UAE"
+                                loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h4><i class="fas fa-paint-roller"></i> Painting Services</h4>
+                            <p>Interior and exterior painting for residential & commercial</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="Images/IMAGE FOR HANDYMAN SERIVCE.png" alt="Handyman Services Dubai"
+                                loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h4><i class="fas fa-hammer"></i> Handyman Services</h4>
+                            <p>Our handyman service offers quick and reliable solutions for all your home repair
+                                needs. From minor fixes to general maintenance, we handle it with professionalism
+                                and care. Count on us to keep your home in top condition.</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
