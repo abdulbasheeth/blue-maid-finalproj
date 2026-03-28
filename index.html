@@ -658,7 +658,7 @@
             color: var(--primary-blue);
             font-size: 14px;
             font-weight: 600;
-            cursor: pointer;
+            cursor: button;
             padding: 0;
             margin-top: 5px;
             display: inline-block;
@@ -1461,11 +1461,11 @@
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
         }
 
-        /* WhatsApp Float Button */
+        /* WhatsApp Float Button - UPDATED */
         .whatsapp-float {
             position: fixed;
-            bottom: 100px;
-            left: 30px;
+            bottom: 110px; /* 30px (AI bottom) + 60px (AI height) + 20px (gap) */
+            right: 30px;   /* Changed from left to right */
             width: 60px;
             height: 60px;
             background: var(--green);
@@ -1563,9 +1563,10 @@
                 height: 450px;
             }
 
+            /* WhatsApp Float Mobile - UPDATED */
             .whatsapp-float {
-                left: 20px;
-                bottom: 160px;
+                right: 20px;     /* Changed from left to right */
+                bottom: 95px;    /* 20px (AI bottom) + 60px (AI height) + 15px (gap) */
             }
 
             .ai-assistant {
@@ -1924,7 +1925,7 @@
                     
                         <div class="service-item">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                <img src="Images/IMAGE FOR AFTER RENOVATION CLEANING.png"
                                     alt="Post Construction Cleaning UAE" loading="lazy">
                             </div>
                             <div class="service-content">
@@ -2082,6 +2083,7 @@
             </div>
         </div>
 
+        <div class="service-category" style="display: none;"> 
         <!-- Technical Services Category -->
         <div class="service-category">
             <div class="category-banner">
@@ -2342,8 +2344,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Blue City Maids. All Rights Reserved. | <a href="https://www.ajafitech.com"
-                        target="_blank" rel="noopener noreferrer">Powered by AJAFi Technologies LLC</a></p>
+                <p>&copy; 2024 Blue City Maids. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -2528,15 +2529,40 @@
         let chatStep = 0;
         const chatQuestions = [
             "What's your name?",
-            "What's your phone number?",
+            "What's your phone number? (10 digits, e.g., 501234567)",
             "Which service category do you need?\n1. Cleaning Services\n2. Technical Services\n3. Homecare Services",
             "What specific service do you need? (e.g., Deep Cleaning, AC Repair, etc.)",
-            "Preferred date for service?",
+            "Preferred date for service? (dd/mm/yyyy)",
             "Preferred time? (Morning, Afternoon, Evening)",
-            "What's your address?",
+            "Which city are you in? (Dubai, Sharjah, Ajman)",
             "How often do you need this service? (One-time, Weekly, Monthly)",
             "Any special instructions or requirements?"
         ];
+
+        // FIX: Added Missing Validation Functions
+        function isValidPhone(phone) {
+            // Basic check for 10 digits
+            return /^\d{10}$/.test(phone);
+        }
+
+        function isValidDate(dateString) {
+            // Check format dd/mm/yyyy
+            const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+            if (!regex.test(dateString)) return false;
+            
+            const [_, day, month, year] = dateString.match(regex);
+            const inputDate = new Date(`${year}-${month}-${day}`);
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            
+            // Check if date is valid and not in the past
+            return inputDate >= today;
+        }
+
+        function isValidCity(city) {
+            const validCities = ['dubai', 'sharjah', 'ajman'];
+            return validCities.includes(city.toLowerCase());
+        }
 
         function openChat() {
             chatModal.classList.add('active');
@@ -2568,6 +2594,20 @@
 
             addMessage(message, true);
             chatInput.value = '';
+             
+            // Validation
+            if (chatStep === 1 && !isValidPhone(message)) {
+                addMessage("❌ Please enter a valid 10-digit phone number (e.g., 501234567).");
+                return;
+            }
+            if (chatStep === 4 && !isValidDate(message)) {
+                addMessage("❌ Please enter a valid future date in dd/mm/yyyy format (e.g., 25/12/2025). Today's date or later is accepted.");
+                return;
+            }
+            if (chatStep === 6 && !isValidCity(message)) {
+                addMessage("❌ Please enter a valid city: Dubai, Sharjah, or Ajman.");
+                return;
+            }
 
             switch (chatStep) {
                 case 0: serviceData.name = message; break;
@@ -2588,6 +2628,7 @@
                     addMessage(chatQuestions[chatStep]);
                     if (chatStep === 2) showCategoryOptions();
                     else if (chatStep === 5) showTimeOptions();
+                    else if (chatStep === 6) showLocationOptions(); // FIX: Called missing function
                     else if (chatStep === 7) showFrequencyOptions();
                 }, 500);
             } else {
@@ -2621,6 +2662,19 @@
             chatBody.appendChild(optionsDiv);
             chatBody.scrollTop = chatBody.scrollHeight;
         }
+
+           function showLocationOptions() {
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'chat-option';
+            optionsDiv.innerHTML = `
+                <button class="option-button" onclick="selectOption('Dubai')">Dubai</button>
+                <button class="option-button" onclick="selectOption('Sharjah')">Sharjah</button>
+                <button class="option-button" onclick="selectOption('Ajman')">Ajman</button>
+            `;
+            chatBody.appendChild(optionsDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+        
 
         function showFrequencyOptions() {
             const optionsDiv = document.createElement('div');
@@ -2701,7 +2755,8 @@ Please confirm this service request.`;
             }
         });
 
-        document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} Blue City Maids. All Rights Reserved. | <a href="https://www.ajafitech.com" target="_blank" rel="noopener noreferrer">Powered by AJAFi Technologies LLC</a>`;
+        // Updated to remove "Powered by" text
+        document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} Blue City Maids. All Rights Reserved.`;
 
         // Add WhatsApp Book Now buttons to each service item
         document.addEventListener('DOMContentLoaded', function () {
