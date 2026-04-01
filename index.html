@@ -97,7 +97,6 @@
     </script>
 
     <!-- Font Awesome -->
-    <!-- Replace your current Font Awesome with this -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Google Fonts -->
@@ -133,13 +132,24 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--light-bg);
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
         }
+
+        
 
         h1,
         h2,
@@ -176,17 +186,20 @@
             top: 0;
             left: 0;
             width: 100%;
+            max-width: 100vw;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
         }
 
         .header.scrolled {
             width: 92%;
-            left: 4%;
+            max-width: calc(100vw - 16px);
+            left: calc(4%);
             border-radius: 50px;
             top: 20px;
             box-shadow: 0 8px 30px rgba(22, 114, 174, 0.6), 0 12px 50px rgba(22, 114, 174, 0.5);
@@ -350,7 +363,10 @@
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 20px;
-            white-space: nowrap;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
             color: var(--dark-blue);
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
             filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
@@ -406,10 +422,22 @@
         /* ============================================
            ABOUT SECTION — TWO IMAGES LEFT + TEXT RIGHT
            ============================================ */
+
+        .brand-highlight {
+            color: var(--primary-blue);
+            display: inline;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+
+
+
         .about {
             background: var(--white);
             position: relative;
             overflow: hidden;
+            max-width: 100vw;
             padding: 120px 0;
         }
 
@@ -440,6 +468,9 @@
         .section-title {
             text-align: center;
             margin-bottom: 60px;
+            margin-top: -55px;
+            overflow: hidden;
+            max-width: 100%;
         }
 
         .section-title h2 {
@@ -485,6 +516,8 @@
             align-items: center;
             justify-content: center;
             min-height: 580px;
+            overflow: hidden;
+            max-width: 100%;
         }
 
         /* Main (large) image */
@@ -498,6 +531,7 @@
             width: 100%;
             height: auto;
             max-height: 520px;
+            max-width: 100%;
             object-fit: contain;
             object-position: center center;
             border-radius: var(--border-radius-lg);
@@ -546,6 +580,7 @@
             width: 100%;
             height: auto;
             max-height: 280px;
+            max-width: 100%;
             object-fit: contain;
             object-position: center center;
             border-radius: var(--border-radius-lg);
@@ -582,11 +617,15 @@
             align-items: center;
             gap: 8px;
             letter-spacing: 0.3px;
+            max-width: calc(100% - 20px);
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .about-exp-badge i {
             font-size: 15px;
             color: var(--accent-color);
+            flex-shrink: 0;
         }
 
         /* --- RIGHT TEXT COLUMN --- */
@@ -863,6 +902,7 @@
                 bottom: 280px;
                 font-size: 12px;
                 padding: 10px 16px;
+                left: 5px;
             }
 
             .about-text {
@@ -935,8 +975,6 @@
                 font-size: 14px;
             }
         }
-
-
 
 
 
@@ -1015,10 +1053,6 @@
             margin: 0;
         }
 
-        .section-title {
-            margin-top: -60px;
-        }
-
         .services-container {
             padding: 40px;
         }
@@ -1040,6 +1074,7 @@
             border: 1px solid #f0f0f0;
             display: flex;
             flex-direction: column;
+            max-width: 100%;
         }
 
         .service-item:hover {
@@ -1048,15 +1083,20 @@
         }
 
         .service-image {
-            height: 220px;
+            height: 280px;
             overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            
         }
 
         .service-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            
+                object-fit: cover;
             transition: transform 0.5s ease;
+            max-width: 100%;
         }
 
         .service-item:hover .service-image img {
@@ -1064,7 +1104,6 @@
         }
 
         .service-content {
-            padding: 25px;
             padding: 18px 20px;
             flex: 1;
             display: flex;
@@ -1073,20 +1112,14 @@
 
         .service-item h4 {
             font-size: 15px;
-            /* ⬇️ Smaller font */
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
-            /* ⬇️ Tighter gap */
             white-space: nowrap;
-            /* 🚫 No line break */
             overflow: hidden;
-            /* 🚫 Hide overflow */
             text-overflow: ellipsis;
-            /* ✂️ Show ... if too long */
             line-height: 1.4;
-            /* ⬇️ Tighter line height */
             flex-shrink: 0;
             color: var(--dark-blue);
 
@@ -1185,6 +1218,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            overflow: hidden;
         }
 
         .contact-info {
@@ -1290,6 +1324,7 @@
             padding: 80px 0 30px;
             position: relative;
             overflow: hidden;
+            max-width: 100vw;
         }
 
         .footer .container {
@@ -1590,6 +1625,8 @@
             bottom: 100px;
             right: 30px;
             width: 400px;
+            max-width: calc(100vw - 40px);
+            left: auto;
             height: 500px;
             background: var(--white);
             border-radius: var(--border-radius);
@@ -1851,6 +1888,7 @@
             right: 30px;
             width: 60px;
             height: 60px;
+            max-width: 60px;
             background: var(--green);
             border-radius: 50%;
             display: flex;
@@ -1891,7 +1929,7 @@
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 28px;
-                white-space: normal;
+                white-space: normal !important;
                 line-height: 1.3;
             }
 
@@ -1905,6 +1943,7 @@
 
             .header.scrolled {
                 width: 94%;
+                max-width: calc(100vw - 12px);
                 left: 3%;
                 border-radius: 40px;
                 top: 10px;
@@ -2013,6 +2052,32 @@
                 padding: 20px;
             }
         }
+
+        /* ===== SCROLLBAR FIX FOR MOBILE ===== */
+        @media (max-width: 768px) {
+            * {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            *::-webkit-scrollbar {
+                display: none;
+            }
+
+            html,
+            body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                min-width: 0 !important;
+            }
+
+            .header {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+
+        }
     </style>
 </head>
 
@@ -2081,7 +2146,7 @@
         <div class="container">
             <div class="section-title reveal">
                 <h2>About Us</h2>
-                <p>Dedicated to transforming spaces and elevating experiences</p>
+                <p>Welcome to <span class="brand-highlight">Blue City Maids</span></p>
             </div>
 
             <div class="about-grid">
@@ -2125,12 +2190,12 @@
                         spaces and elevating experiences. At the heart of our approach is a commitment to building
                         strong, lasting relationships with our clients. We take the time to understand your unique needs
                         and tailor our services to perfectly match your requirements. Our mission is to make a
-                        meaningful difference in your life — helping you <span class="highlight-text">Relax, Refresh,
+                        meaningful difference in your life helping you <span class="highlight-text">Relax, Refresh,
                             and Reconnect always with us</span>.</p>
 
                     <p>Experience the difference with a cleaning service that cares as much as you do. We are confident
                         that our superior service will not only meet but exceed your expectations. Join us as we embark
-                        on a journey to redefine excellence in cleaning — striving to become the leading provider in the
+                        on a journey to redefine excellence in cleaning striving to become the leading provider in the
                         industry.</p>
 
                     <!-- CTA -->
@@ -2194,8 +2259,8 @@
                                     <h4><i class="fas fa-tint"></i> Deep Cleaning (Apartment & Villa)</h4>
                                     <p>Deep cleaning involves detailed tasks like cleaning cabinets, behind furniture,
                                         interior windows, plus steaming bathrooms and kitchens, with grout cleaning
-                                        available on request. It’s perfect for moving in or deep refreshment. Book our
-                                        trusted, professional teams, available daily ,weekly and monthly , “Book Now” to
+                                        available on request. It's perfect for moving in or deep refreshment. Book our
+                                        trusted, professional teams, available daily ,weekly and monthly , "Book Now" to
                                         get started.</p>
                                     <span class="service-badge">Popular Service</span>
                                 </div>
@@ -2205,7 +2270,9 @@
                                         alt="Living Area Bedrooms Cleaning Dubai" loading="lazy"></div>
                                 <div class="service-content">
                                     <h4><i class="fas fa-couch"></i> Living Area & Bedrooms Cleaning</h4>
-                                    <p>Thorough cleaning of living rooms, bedrooms, and common areas. We ensure every corner is dust-free and tidy, providing a comfortable living environment for you and your family.</p>
+                                    <p>Thorough cleaning of living rooms, bedrooms, and common areas. We ensure every
+                                        corner is dust-free and tidy, providing a comfortable living environment for you
+                                        and your family.</p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -2217,7 +2284,7 @@
                                         appliances, cabinets, countertops, and sinks , eliminating grease, food
                                         residues, and stains to leave your kitchen sparkling clean and hygienic. Our
                                         professional team uses safe, effective products to ensure your kitchen is fresh,
-                                        sanitized, and ready for use, “Book Now” to get started.</p>
+                                        sanitized, and ready for use, "Book Now" to get started.</p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -2275,7 +2342,7 @@
                                         services, tailored to effortlessly elevate your wardrobe care. Our dedicated
                                         team of professionals delivers meticulous laundry and precision ironing right at
                                         your doorstep, ensuring every garment receives the highest level of care.
-                                        Whether it’s delicate silks or everyday essentials, we employ premium, safe
+                                        Whether it's delicate silks or everyday essentials, we employ premium, safe
                                         cleaning and pressing techniques to keep your clothes looking pristine, fresh,
                                         and impeccably maintained. Designed for your busy lifestyle, our personalized
                                         service offers flexible scheduling and a seamless, stress-free experience. Rely
@@ -2294,10 +2361,10 @@
 
                                         For move-in days, we craft a welcoming environment by deep cleaning every nook
                                         and cranny, ensuring your new space feels pristine and inviting from the moment
-                                        you arrive. When it’s time to move out, we handle every detail with meticulous
+                                        you arrive. When it's time to move out, we handle every detail with meticulous
                                         care, leaving former home impeccably clean and ready for its next chapter.
 
-                                        Harnessing eco-friendly products , we deliver a service that’s quick, reliable,
+                                        Harnessing eco-friendly products , we deliver a service that's quick, reliable,
                                         and tailored to your busy schedule. Let us take the stress out of your move, so
                                         you can focus on what truly matters your next adventure. Experience the
                                         difference with our professional touch and enjoy a seamless, sparkling
@@ -2314,15 +2381,15 @@
                                         Service is the secret ingredient to making every gathering extraordinary.
                                         Before, during, and after the event.
 
-                                        Imagine walking into a venue that’s immaculately clean and inviting, setting the
+                                        Imagine walking into a venue that's immaculately clean and inviting, setting the
                                         perfect tone for your celebration. As the party unfolds, we discreetly handle
                                         every spill, mess, and dust bunny, ensuring your space remains pristine without
                                         interrupting your flow. We work swiftly to restore your venue to its pristine
                                         glory, leaving nothing but a trail of satisfaction and admiration.
 
                                         Harnessing eco-friendly products and innovative techniques, our team combines
-                                        professionalism with passion to deliver a cleaning experience that’s nothing
-                                        short of exceptional. Whether it’s an intimate gathering or a grand affair,
+                                        professionalism with passion to deliver a cleaning experience that's nothing
+                                        short of exceptional. Whether it's an intimate gathering or a grand affair,
                                         trust us to make your event not only memorable but also impeccably spotless.</p>
                                 </div>
                             </div>
@@ -2343,10 +2410,10 @@
                                     <h4><i class="fas fa-briefcase"></i> Office Cleaning</h4>
                                     <p>Imagine walking into an office that feels fresh, vibrant, and perfectly polished
                                         ,where every surface shines and every detail speaks of professionalism. Our
-                                        Office Cleaning Service doesn’t just clean, we create environments that motivate
+                                        Office Cleaning Service doesn't just clean, we create environments that motivate
                                         and impress.
 
-                                        Feel the difference of a space that’s meticulously maintained—free of dust,
+                                        Feel the difference of a space that's meticulously maintained—free of dust,
                                         grime, and clutter—empowering your team to perform at their very best. Using
                                         innovative, eco-friendly products, our expert team delivers sparkling results
                                         that turn your workplace into a stunning showcase of cleanliness and
@@ -2373,7 +2440,7 @@
                                         team uses specialized cleaning tools and eco-friendly products to ensure every
                                         corner is thoroughly cleaned.
 
-                                        Whether it’s a home renovation, office upgrade, or commercial project, we
+                                        Whether it's a home renovation, office upgrade, or commercial project, we
                                         customize our cleaning to meet your specific needs. Relax and enjoy your
                                         beautifully transformed space without the stress of cleaning up.
 
@@ -2471,8 +2538,8 @@
 
 
                                     <p>Our expert team uses powerful, eco-friendly solutions to lift dirt, eliminate
-                                        stains, and remove odors ,restoring your carpets’ beauty and extending their
-                                        lifespan. Whether it’s high-traffic areas or delicate fibers, we tailor our
+                                        stains, and remove odors ,restoring your carpets' beauty and extending their
+                                        lifespan. Whether it's high-traffic areas or delicate fibers, we tailor our
                                         approach to deliver flawless results every time.
 
                                         Breathe easier knowing your space is healthier for your family, employees. With
@@ -2518,7 +2585,7 @@
                                 <div class="service-content">
                                     <h4><i class="fas fa-child"></i> Babysitter</h4>
                                     <p>Our babysitter service offers caring and cheerful caregivers who enjoy spending
-                                        time with kids. Whether it’s an evening out, a weekend, or just a few hours, we
+                                        time with kids. Whether it's an evening out, a weekend, or just a few hours, we
                                         help you find someone your children will feel comfortable with.
 
                                         Our babysitters are friendly, attentive, and great at keeping kids happy and
@@ -2526,7 +2593,7 @@
                                         are well looked after.
 
                                         Flexible options available to fit your schedule. Let us connect you with someone
-                                        special who will make your kids’ time fun and safe.</p>
+                                        special who will make your kids' time fun and safe.</p>
                                 </div>
                             </div>
                         </div>
@@ -2606,12 +2673,12 @@
     <!-- Contact Section -->
     <section id="contact" class="contact section-padding">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title  reveal">
                 <h2>Contact Us</h2>
                 <p>Get in touch for all your cleaning and technical service needs</p>
             </div>
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info reveal-left">
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
@@ -2641,7 +2708,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form reveal-right">
                     <h3 style="margin-bottom: 20px; color: var(--primary-blue);">Quick Service Request</h3>
                     <form id="contactForm">
                         <div class="form-group">
@@ -2724,13 +2791,12 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Technical Services</h3>
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#services">Electrical Services</a></li>
-                        <li><a href="#services">AC Services</a></li>
-                        <li><a href="#services">Plumbing Services</a></li>
-                        <li><a href="#services">Painting & Handyman</a></li>
-                        <li><a href="#services">AMC Contracts</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -3044,8 +3110,6 @@
         document.querySelector('.chat-input').addEventListener('click', () => { chatInput.focus(); });
 
         window.addEventListener('click', (e) => { if (e.target === confirmationModal) confirmationModal.classList.remove('active'); });
-
-        // Dynamic copyright year
 
         // Dynamic copyright year
         document.querySelector('.copyright p').innerHTML = '&copy; ' + new Date().getFullYear() + ' Blue City Maids LLC. All Rights Reserved.';
